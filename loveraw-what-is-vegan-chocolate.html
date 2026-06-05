@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>What Is Vegan Chocolate? – LoveRaw</title>
+
+<!-- Rubik from Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================
+   SITTING DUCK — LoveRaw's display font.
+   We load via cdnfonts. If unavailable, the
+   system falls back to a heavy serif which 
+   preserves the chunky display character.
+   ============================================ */
+@import url('https://fonts.cdnfonts.com/css/sitting-duck');
+
+/* Belt-and-braces: define locally in case CDN
+   is unavailable in a review environment */
+@font-face {
+  font-family: 'Sitting Duck';
+  src: url('https://fonts.cdnfonts.com/s/25317/SittingDuck.woff') format('woff'),
+       url('https://fonts.cdnfonts.com/s/25317/SittingDuck.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 17px; }
+
+body {
+  font-family: 'Rubik', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #000;
+  background: #fff;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: #6a6a6a; text-decoration: underline; text-underline-offset: 2px; }
+a:hover { color: #000; }
+
+/* ============================================
+   ANNOUNCEMENT BAR
+   ============================================ */
+.announcement-bar {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  padding: 0 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Rubik', sans-serif;
+}
+
+/* ============================================
+   HEADER / NAV
+   ============================================ */
+.site-header {
+  background: #fff;
+  border-bottom: 1px solid #e8e8e8;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #888;
+  letter-spacing: 0.05em;
+}
+
+.header-left img {
+  height: 32px;
+  opacity: 0.7;
+}
+
+.site-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.site-logo svg {
+  height: 44px;
+  width: auto;
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.header-nav a {
+  font-family: 'Rubik', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #000;
+  text-decoration: none;
+}
+
+.header-nav a:hover { opacity: 0.6; }
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.header-icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  color: #000;
+}
+
+/* ============================================
+   ARTICLE TOOLBAR ("Now Reading" bar)
+   ============================================ */
+.article-toolbar {
+  background: #000;
+  color: #fff;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  position: sticky;
+  top: 70px;
+  z-index: 99;
+}
+
+.article-toolbar .now-reading {
+  font-family: 'Rubik', sans-serif;
+  color: #fff;
+  opacity: 0.7;
+  text-transform: uppercase;
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+
+.article-toolbar .now-reading span {
+  font-weight: 600;
+  opacity: 1;
+  font-family: 'Sitting Duck', Georgia, serif;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  color: #fff;
+}
+
+.article-toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #fff;
+}
+
+.article-toolbar-right a { color: #fff; text-decoration: none; }
+.article-toolbar-right .share { opacity: 0.7; }
+
+/* ============================================
+   ARTICLE HERO
+   ============================================ */
+.article-hero {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+  position: relative;
+}
+
+.article-hero-image {
+  width: 100%;
+  height: 640px;
+  background-image: url('https://eatloveraw.com/cdn/shop/articles/etty-fidele-oJpkjWcScyg-unsplash_1600x.jpg?v=1623681503');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  top: -40px;
+}
+
+/* ============================================
+   ARTICLE LAYOUT
+   ============================================ */
+.article-layout {
+  position: relative;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  min-height: 600px;
+}
+
+/* White content card — overlaps the hero */
+.article-wrapper {
+  background: #fff;
+  max-width: 780px;
+  padding: 40px 50px 60px;
+  margin-top: -70px;
+  position: relative;
+  z-index: 10;
+}
+
+/* ============================================
+   ARTICLE META (date + category)
+   ============================================ */
+.article-meta {
+  font-family: 'Sitting Duck', Georgia, serif;
+  font-size: 14px;
+  color: #6a6a6a;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.article-meta .dot {
+  width: 4px;
+  height: 4px;
+  background: #6a6a6a;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+/* ============================================
+   BREADCRUMBS
+   ============================================ */
+.breadcrumbs {
+  font-size: 14px;
+  color: #6a6a6a;
+  margin-bottom: 20px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.breadcrumbs a { color: #6a6a6a; text-decoration: none; }
+.breadcrumbs a:hover { text-decoration: underline; }
+.breadcrumbs span { margin: 0 6px; }
+
+/* ============================================
+   ARTICLE TITLE (H1)
+   ============================================ */
+.article-title {
+  font-family: 'Sitting Duck', Georgia, serif;
+  font-size: 60px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #000;
+  margin-bottom: 40px;
+}
+
+/* ============================================
+   ARTICLE BODY CONTENT
+   ============================================ */
+.article-content {
+  font-family: 'Rubik', sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  color: #000;
+}
+
+.article-content p {
+  margin-bottom: 1.6em;
+}
+
+/* H2 — main section headings */
+.article-content h2 {
+  font-family: 'Sitting Duck', Georgia, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000;
+  margin-top: 88px;
+  margin-bottom: 36px;
+}
+
+/* First h2 gets less top margin */
+.article-content h2:first-of-type {
+  margin-top: 0;
+}
+
+/* H3 — sub-section headings */
+.article-content h3 {
+  font-family: 'Sitting Duck', Georgia, serif;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #000;
+  margin-top: 54px;
+  margin-bottom: 24px;
+}
+
+/* Horizontal rules */
+.article-content hr {
+  border: none;
+  border-top: 1px solid #e8e8e8;
+  margin: 56px 0;
+}
+
+/* Unordered lists */
+.article-content ul {
+  margin-bottom: 1.6em;
+  padding-left: 22px;
+}
+
+.article-content ul li {
+  padding: 5px 0;
+  line-height: 1.65;
+}
+
+.article-content ul li strong {
+  font-weight: 600;
+}
+
+/* Intro section — styled slightly differently */
+.article-intro {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   CALLOUT / BLOCKQUOTE BOXES
+   Matching LoveRaw's editorial aesthetic —
+   left-bordered, lightly tinted background
+   ============================================ */
+.article-content blockquote {
+  border-left: 3px solid #000;
+  background: #f8f8f6;
+  padding: 20px 24px;
+  margin: 36px 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.article-content blockquote p {
+  margin-bottom: 0;
+}
+
+.article-content blockquote strong {
+  font-weight: 600;
+  color: #000;
+}
+
+/* ============================================
+   STRONG TEXT (bold in body)
+   ============================================ */
+.article-content strong {
+  font-weight: 600;
+}
+
+/* Lead-in bold terms — bold inline as normal */
+
+/* ============================================
+   FAQ SECTION
+   ============================================ */
+.faq-section {
+  margin-top: 72px;
+}
+
+.faq-section h2 {
+  margin-bottom: 40px;
+}
+
+.faq-item {
+  border-top: 1px solid #e8e8e8;
+  padding: 28px 0;
+}
+
+.faq-item:last-child {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.faq-question {
+  font-family: 'Rubik', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 12px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.faq-question::after {
+  content: '+';
+  font-size: 22px;
+  font-weight: 300;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 2px;
+}
+
+.faq-answer {
+  font-size: 16px;
+  line-height: 1.65;
+  color: #333;
+}
+
+.faq-answer p { margin-bottom: 0; }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  background: #000;
+  color: #fff;
+  padding: 60px 40px 40px;
+  margin-top: 100px;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid #333;
+}
+
+.footer-col h4 {
+  font-family: 'Sitting Duck', Georgia, serif;
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.footer-col ul li a {
+  color: #aaa;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: 'Rubik', sans-serif;
+}
+
+.footer-col ul li a:hover { color: #fff; }
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 24px auto 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #666;
+}
+
+/* ============================================
+   INTRO SECTION — no ## heading rendered,
+   just the two paragraphs flush at the top
+   ============================================ */
+.article-intro-section {
+  margin-bottom: 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 900px) {
+  .article-wrapper {
+    margin-top: 0;
+    max-width: 100%;
+    padding: 32px 24px;
+  }
+
+  .article-title { font-size: 38px; }
+  .article-content h2 { font-size: 28px; }
+  .article-content h3 { font-size: 22px; }
+
+  .header-nav { display: none; }
+
+  .footer-inner { grid-template-columns: repeat(2, 1fr); }
+
+  .article-hero { height: 300px; }
+  .article-hero-image { height: 340px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ ANNOUNCEMENT BAR ============ -->
+<div class="announcement-bar">
+  FREE DELIVERY ON ORDERS OVER £40
+</div>
+
+<!-- ============ HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+
+    <!-- Left: Smart Organic brand mark -->
+    <div class="header-left">
+      <span style="font-size:9px; text-transform:uppercase; letter-spacing:0.15em; color:#888;">PART OF</span>
+      <svg height="28" viewBox="0 0 80 34" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.65">
+        <text y="24" font-family="'Rubik', sans-serif" font-size="11" font-weight="600" fill="#000" letter-spacing="1">SMART</text>
+        <text y="34" font-family="'Rubik', sans-serif" font-size="9" fill="#888" letter-spacing="1.5">ORGANIC</text>
+      </svg>
+    </div>
+
+    <!-- Centre: Logo -->
+    <div class="site-logo">
+      <a href="#" aria-label="LoveRaw home">
+        <img src="https://eatloveraw.com/cdn/shop/files/LR_Logo_R_90x.png?v=1614310401" 
+             alt="LoveRaw" 
+             style="height:44px; width:auto;">
+      </a>
+    </div>
+
+    <!-- Right: Nav + icons -->
+    <div style="display:flex; align-items:center; gap:32px;">
+      <nav>
+        <ul class="header-nav">
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Vegan Recipes</a></li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <!-- Account icon -->
+        <button aria-label="Account">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+        </button>
+        <!-- Search icon -->
+        <button aria-label="Search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/>
+            <path d="m21 21-4.35-4.35"/>
+          </svg>
+        </button>
+        <!-- Cart icon -->
+        <button aria-label="Cart">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ============ ARTICLE TOOLBAR ============ -->
+<div class="article-toolbar">
+  <div class="now-reading">NOW READING: <span>WHAT IS VEGAN CHOCOLATE?</span></div>
+  <div class="article-toolbar-right">
+    <span class="share">SHARE</span>
+    <span>&#8249; PREV</span>
+    <span style="opacity:0.4;">|</span>
+    <span>NEXT &#8250;</span>
+  </div>
+</div>
+
+<!-- ============ HERO IMAGE ============ -->
+<div class="article-hero">
+  <div class="article-hero-image" role="img" aria-label="Cacao beans in hands"></div>
+</div>
+
+<!-- ============ ARTICLE LAYOUT ============ -->
+<div class="article-layout">
+  <div class="article-wrapper">
+
+    <!-- Meta: date + category -->
+    <div class="article-meta">
+      <span>June 5, 2026</span>
+      <span class="dot"></span>
+      <span>Choc Guide</span>
+    </div>
+
+    <!-- Breadcrumbs -->
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="#">Home</a>
+      <span>›</span>
+      <a href="#">Vegan Choc Guide &amp; News</a>
+      <span>›</span>
+      <span>What Is Vegan Chocolate?</span>
+    </nav>
+
+    <!-- Article Title -->
+    <h1 class="article-title">What Is Vegan Chocolate?</h1>
+
+    <!-- ============ ARTICLE CONTENT ============ -->
+    <div class="article-content">
+
+      <!-- Introduction (no heading rendered per our article) -->
+      <p>You've picked up a chocolate bar, turned it over, and stared at the ingredients list like it owes you money. Somewhere between "cocoa mass" and "may contain milk" you've lost the plot entirely. Or maybe you've just switched to plant-based eating and you're quietly furious that the thing you love most is riddled with dairy.</p>
+
+      <p>Vegan chocolate is chocolate made with zero animal-derived ingredients. No dairy in any form. No honey. Nothing from an animal at any point in the process. At LoveRaw, that's the baseline. Then we asked how to make it taste genuinely incredible, not just technically compliant.</p>
+
+      <hr>
+
+      <h2>How Chocolate Gets Made (And Where It Stops Being Vegan)</h2>
+
+      <p>The whole process starts with a seed.</p>
+
+      <p>Cacao trees produce large pods. Each pod contains roughly 40 seeds: cacao beans. Once harvested, the beans are fermented for several days, which starts developing their flavour. After fermentation they are dried, then shipped to chocolate manufacturers where they are roasted.</p>
+
+      <p>Roasting is where the familiar chocolate smell begins. After roasting, the beans are cracked and winnowed, a process that separates the inner nib from the outer shell using air pressure. Those nibs go into a grinder and come out as cocoa mass, also called cocoa liquor. Cocoa mass is naturally about half cocoa solids, half cocoa butter. Pure, plant-based chocolate in its rawest form.</p>
+
+      <p>From here the liquid chocolate is refined further, then conched. Conching is the step that turns gritty, sharp-tasting paste into smooth, rounded chocolate. The mixture is churned continuously, sometimes for days, which aerates it, removes volatile acids, and develops the final flavour. This is where lecithin is often added as an emulsifier to control viscosity.</p>
+
+      <p>The last step is tempering: carefully heating and cooling the chocolate to create a stable crystal structure in the cocoa butter. Properly tempered chocolate has that glossy surface, clean snap when you break it, and smooth melt on the tongue. Without it you get <a href="https://eatloveraw.com/blogs/blog/why-does-chocolate-bloom">bloom</a>: the white, dusty streaks that appear on old chocolate.</p>
+
+      <p>None of those steps require any animal products. The process from cacao pod to tempered chocolate is naturally vegan. The non-vegan ingredients come in during step five and step six, when manufacturers add milk powder, cream, butter, or other dairy to create their recipe. That is the only fundamental difference.</p>
+
+      <blockquote>
+        <p><strong>Key Takeaway:</strong> Chocolate is naturally plant-based at its core. Animal products are additions, not requirements. Vegan chocolate simply skips those additions and builds something equally satisfying without them.</p>
+      </blockquote>
+
+      <hr>
+
+      <h2>Dark, Milk, and White: What Each One Actually Means for Vegans</h2>
+
+      <h3>Dark Chocolate</h3>
+
+      <p>Dark chocolate is the most straightforward for vegans. The basic formula is cocoa mass, cocoa butter, sugar, and sometimes a small amount of lecithin or vanilla. No milk is required.</p>
+
+      <p>The catch is that "dark" is not a vegan guarantee. Some brands add milk powder to their dark chocolate to soften bitterness or create a creamier texture. Others produce dark and milk chocolate on the same line, meaning cross-contamination is possible. A "may contain milk" warning on a dark chocolate bar does not mean dairy was added. It means there is a factory contamination risk. That is a different thing, and whether it matters depends on why you are avoiding dairy.</p>
+
+      <p>The practical rule: check the actual ingredient list, not the cocoa percentage. A 70% bar with milk solids is not vegan. A 55% bar with none is. For a deeper dive into <a href="https://eatloveraw.com/blogs/blog/is-chocolate-vegan">which types of chocolate are vegan</a>, we have covered the full breakdown elsewhere.</p>
+
+      <h3>Vegan Milk Chocolate</h3>
+
+      <p>Milk chocolate is the difficult one. By definition it requires dairy milk or milk powder. Without it, manufacturers cannot legally label something "milk chocolate" in the UK. What the best vegan brands do is engineer something that delivers the same experience: creamy, sweet, smooth, with that characteristic mouthfeel that dairy fat produces.</p>
+
+      <p>The solution is plant-based milk alternatives, incorporated as powder. Oat milk powder is currently the most popular choice for premium vegan milk chocolate. It produces a neutral, creamy flavour that does not fight the cocoa. Coconut milk powder adds richness and depth but brings its own flavour note. Detectable in some bars, barely present in others depending on the quantity used. Rice milk powder gives a lighter, slightly sweeter result but less body. Almond milk powder adds a subtle nuttiness.</p>
+
+      <p>Each milk alternative behaves differently in the recipe. Dairy milk contains specific proteins and fat structures that are genuinely hard to replicate. The early vegan milk chocolates that left a bad impression were often too sweet (compensating for missing fat), grainy (inadequate refining), or had a coconutty aftertaste that gave them away immediately. Those problems have not disappeared entirely, but the gap between good vegan milk chocolate and dairy milk chocolate has closed considerably.</p>
+
+      <p>The manufacturers who get it right use higher cocoa butter ratios for mouthfeel, careful plant milk selection and blending, longer refining times, and rigorous recipe development. Our <a href="https://eatloveraw.com/products/vegan-milk-chocolate-cream-wafer-bars">M:lk® Choc Cre&amp;m® Wafer Bar</a> is exactly that. It tastes like milk chocolate because that's the only standard we were interested in.</p>
+
+      <h3>Vegan White Chocolate</h3>
+
+      <p>White chocolate contains no cocoa solids. It's cocoa butter, sugar, and milk. Nothing else. That high dairy content makes it the hardest category to crack without compromise.</p>
+
+      <p>Convincing vegan white chocolate requires plant-based fats that behave like milk fat: the same density and melt, plus a milk powder alternative that delivers body and the characteristic sweetness without tasting of oats or coconut. When it works, you get something genuinely indulgent. When it doesn't, you get something that tastes waxy, one-note, or like a confectionery prop rather than actual chocolate.</p>
+
+      <p>The failures usually come from using the wrong fat base. Cheap vegetable oils rather than cocoa butter produce that candle-wax quality that has put so many people off vegan white chocolate. Our <a href="https://eatloveraw.com/products/vegan-white-chocolate-cream-wafer-bars">White Choc Cre&amp;m Wafer Bar</a> uses cocoa butter as its base. It's there to taste like white chocolate, not to approximate it.</p>
+
+      <hr>
+
+      <h2>What Is Actually in Vegan Chocolate</h2>
+
+      <p>Here is what a well-made vegan chocolate bar actually contains:</p>
+
+      <ul>
+        <li><strong>Cocoa mass:</strong> the ground cacao nibs that form the flavour backbone of any chocolate</li>
+        <li><strong>Cocoa butter:</strong> the natural fat from cacao beans, fully plant-based, responsible for melt and mouthfeel</li>
+        <li><strong>Plant-based milk powder:</strong> oat, rice, coconut, or almond, used in milk and white chocolate variants</li>
+        <li><strong>Sugar:</strong> usually cane sugar or coconut sugar (more on this below)</li>
+        <li><strong>Emulsifier:</strong> most commonly sunflower lecithin or soy lecithin, which keeps the chocolate smooth</li>
+        <li><strong>Vanilla:</strong> natural vanilla flavouring or vanilla extract for depth</li>
+        <li><strong>Salt:</strong> a small amount used in many recipes to lift chocolate flavour</li>
+      </ul>
+
+      <p>What you will not find in a properly made vegan bar: milk powder, skimmed milk powder, whole milk powder, whey, casein, caseinate, lactose, butter, butterfat, butter oil, cream, or ghee. If you want a breakdown of <a href="https://eatloveraw.com/blogs/blog/what-makes-chocolate-vegan">what specifically makes chocolate vegan</a>, that post goes into detail on the ingredient level.</p>
+
+      <blockquote>
+        <p><strong>Note:</strong> In the UK, most sugar is processed from sugar beet and does not use bone char. In North America, some cane sugar refineries still use bone char in the decolourisation process. Strictly vegan brands specify unrefined cane sugar, certified organic sugar, or coconut sugar to sidestep this entirely.</p>
+      </blockquote>
+
+      <hr>
+
+      <h2>The Hidden Ingredients Most People Miss</h2>
+
+      <p>Dairy is the obvious one. But there's a handful of less visible non-vegan ingredients that turn up in chocolate products and catch people out. None of them are hidden on the label; they just require knowing what you're looking for.</p>
+
+      <p><strong>Shellac (E904).</strong> A glazing agent derived from the secretions of the lac beetle. It is used to give confectionery a high-gloss finish: think shiny chocolate buttons, coated sweets, or certain chocolate-covered nuts. If a chocolate product has an unusual shine, check for E904 or "confectioner's glaze" on the label. Neither is vegan.</p>
+
+      <p><strong>Carmine (E120).</strong> A red food colouring made from crushed cochineal insects. Less common in plain chocolate bars, but you will find it in red-hued fillings, fruit creams, or certain novelty chocolate products. It also appears on labels as "cochineal," "natural red 4," or "carminic acid."</p>
+
+      <p><strong>Gelatine.</strong> Used as a gelling agent in some chocolate fillings, mousses, and coated confectionery. Derived from animal bones and connective tissue.</p>
+
+      <p><strong>Egg-derived lecithin.</strong> Most lecithin in chocolate comes from soy or sunflower, both vegan. But some products specify egg lecithin. If the label just says "lecithin" without specifying the source, the safest approach is to contact the manufacturer or choose a product with a vegan certification.</p>
+
+      <p><strong>Honey.</strong> Appears in some flavoured chocolate bars, particularly those marketed as "natural" or featuring honeycomb.</p>
+
+      <p>None of these will be hidden on a UK label. By law, major allergens must be highlighted in bold, and all ingredients must be listed. But they require knowing what to look for beyond "dairy."</p>
+
+      <blockquote>
+        <p><strong>Tip:</strong> The fastest route past all of this is a certified vegan label from a recognised body like the Vegan Society. That certification means every ingredient and every processing step has been verified. It does not guarantee great chocolate, but it does guarantee no animal products.</p>
+      </blockquote>
+
+      <hr>
+
+      <h2>Reading a Chocolate Label Properly</h2>
+
+      <p>The ingredient list runs in order of quantity, largest first. That tells you a lot about what you are actually eating. If you want more guidance on making a smart choice at the shelf, our post on <a href="https://eatloveraw.com/blogs/blog/how-to-choose-the-best-vegan-chocolate">how to choose the best vegan chocolate</a> covers flavour, certifications, and other factors beyond the label.</p>
+
+      <h3>Things to look for that confirm dairy:</h3>
+
+      <ul>
+        <li>Milk, whole milk, skimmed milk, semi-skimmed milk</li>
+        <li>Milk powder, dried milk, milk solids</li>
+        <li>Whey, whey powder, whey protein</li>
+        <li>Casein, caseinate, sodium caseinate</li>
+        <li>Lactose</li>
+        <li>Cream, cream powder</li>
+        <li>Butter, butter oil, butterfat, butter serum</li>
+        <li>Ghee</li>
+      </ul>
+
+      <h3>Things to look for that confirm vegan milk alternatives:</h3>
+
+      <ul>
+        <li>Oat flour, oat powder, oat milk powder</li>
+        <li>Rice powder, rice milk powder, rice flour</li>
+        <li>Coconut milk powder, coconut cream powder</li>
+        <li>Almond milk powder, almond flour</li>
+        <li>Sunflower lecithin, soy lecithin (as opposed to egg lecithin)</li>
+      </ul>
+
+      <h3>The "may contain" situation</h3>
+
+      <p>"May contain milk" and "contains milk" mean completely different things.</p>
+
+      <p>"Contains milk" means dairy is an ingredient. Full stop. Not vegan.</p>
+
+      <p>"May contain milk" is a precautionary allergen statement. It means the product does not contain dairy as an ingredient, but is made in a facility where dairy products are also handled, and the manufacturer cannot guarantee zero cross-contamination. For most people avoiding dairy by choice, this is not a problem. For someone with a dairy allergy, it requires more caution. For strict vegans, it is a personal decision.</p>
+
+      <blockquote>
+        <p><strong>Bottom line:</strong> If the ingredient list contains no dairy terms and the "may contain" is only precautionary, the product itself is vegan. The question of whether "may contain" is acceptable is a matter of personal preference and individual risk tolerance, not a vegan/non-vegan classification.</p>
+      </blockquote>
+
+      <hr>
+
+      <h2>Vegan vs. Dairy-Free: Is There a Difference?</h2>
+
+      <p>Yes, and it is worth knowing.</p>
+
+      <p><strong>Dairy-free</strong> means no dairy ingredients. That is its entire scope. A product can be dairy-free and still contain honey, shellac, carmine, bone-char-processed sugar, or egg-derived lecithin. "Dairy-free" is a useful flag for people avoiding lactose, but it is not a synonym for vegan.</p>
+
+      <p><strong>Vegan</strong> means no animal-derived ingredients at any stage: ingredients or processing. It is a broader standard. A product can be dairy-free without being vegan. A properly labelled vegan product is always dairy-free.</p>
+
+      <p>For most people choosing vegan chocolate by preference rather than strict ethical commitment, this distinction rarely matters in practice. For someone buying for a strictly vegan person, it is worth checking for a vegan label rather than relying on "dairy-free" alone. Our <a href="https://eatloveraw.com/collections/vegan-butter-cups">full range of vegan butter cups</a>, for example, carry clear vegan certification rather than just dairy-free claims.</p>
+
+      <hr>
+
+      <h2>Why Some Vegan Chocolate Tastes Bad (And How to Spot the Good Stuff)</h2>
+
+      <p>Vegan chocolate's reputation problem comes almost entirely from early products that cut corners. We'll be honest: some of it was grim. But the failures are specific, and once you know what they are, you'll spot them immediately.</p>
+
+      <p><strong>Waxy or oily texture.</strong> The most common complaint about cheap vegan white and milk chocolate. It usually means the manufacturer used palm oil or cheap vegetable fats instead of cocoa butter. Cocoa butter melts at body temperature, which is what gives chocolate that smooth melt on the tongue. Cheaper fats don't behave the same way. You'll know it the second it hits your mouth.</p>
+
+      <p><strong>Grittiness.</strong> Comes from inadequate refining. The particle size of the cocoa and sugar needs to drop below the threshold the tongue can detect, typically below 20 microns. Budget chocolate skips the refining time needed to get there.</p>
+
+      <p><strong>Too sweet.</strong> When dairy fat's missing, some manufacturers compensate by loading in more sugar. The result tastes flat and cloying rather than rich. Good vegan chocolate compensates with higher cocoa butter content and better plant milk, not extra sugar.</p>
+
+      <p><strong>Coconutty aftertaste.</strong> Not inherently bad, and some people love it. But it means coconut milk powder was used at high enough levels to register. Certain flavour combinations work with coconut. Plain milk chocolate doesn't.</p>
+
+      <p>The markers of good vegan chocolate are the same as the markers of good chocolate generally: cocoa butter as the primary fat, a clean short ingredient list, proper snap when broken, smooth melt, and a flavour that builds rather than just being sweet. If it tastes like chocolate when you close your eyes, it's working. If it tastes like "the vegan option," it isn't. Once you find a vegan milk chocolate you trust, it bakes brilliantly too. Our <a href="https://eatloveraw.com/blogs/loveraw-recipes/vegan-chocolate-brookies">vegan chocolate brookies recipe</a> is a good test of that.</p>
+
+      <blockquote>
+        <p><strong>Bottom line:</strong> The difference between forgettable vegan chocolate and genuinely good vegan chocolate is not veganism. It is ingredient quality and recipe development. The category has earned its bad reputation from the bottom end. The top end is a completely different experience.</p>
+      </blockquote>
+
+      <hr>
+
+      <h2>Conclusion</h2>
+
+      <p>Vegan chocolate is chocolate made without any animal-derived ingredients. Chocolate starts plant-based. It's the additions (milk, cream, butter, honey) that make most bars non-vegan. Take those out, replace them properly, and you get something that tastes like chocolate. Not like a compromise.</p>
+
+      <p>A few things worth holding onto:</p>
+
+      <ul>
+        <li>Dark chocolate is often already vegan, but always check the ingredient list</li>
+        <li>Vegan milk and white chocolate need plant-based milk alternatives. Oat milk powder currently produces the best results</li>
+        <li>Dairy-free and vegan aren't the same thing</li>
+        <li>"May contain milk" is a cross-contamination warning, not an ingredient declaration</li>
+        <li>Hidden non-vegan ingredients beyond dairy include shellac (E904), carmine (E120), gelatine, and honey</li>
+        <li>Waxy, gritty, or over-sweet vegan chocolate is a quality problem, not a category problem</li>
+      </ul>
+
+      <p>If you want to taste the difference that proper recipe development makes, <a href="https://eatloveraw.com/collections/vegan-wafer-bars">our Cre&amp;m Wafer Bars</a> are a good place to start. Both the <a href="https://eatloveraw.com/products/vegan-milk-chocolate-cream-wafer-bars">M:lk® Choc</a> and <a href="https://eatloveraw.com/products/vegan-white-chocolate-cream-wafer-bars">White Choc</a> versions were built to the standard of proper chocolate, not the standard of "good enough for vegan."</p>
+
+      <hr>
+
+      <!-- ============ FAQ ============ -->
+      <div class="faq-section">
+        <h2>FAQ</h2>
+
+        <div class="faq-item">
+          <div class="faq-question">Is all dark chocolate vegan?</div>
+          <div class="faq-answer">
+            <p>Not automatically. Most dark chocolate uses cocoa mass, cocoa butter, and sugar, which are all plant-based. But some manufacturers add milk powder to their dark chocolate formulas, and others run dark and milk chocolate on shared equipment. The percentage alone tells you nothing about whether dairy is present. Read the full ingredient list. If "milk" appears in any form, it is not vegan.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">What is the difference between vegan chocolate and dairy-free chocolate?</div>
+          <div class="faq-answer">
+            <p>Dairy-free means the product contains no dairy ingredients. Vegan means no animal-derived ingredients of any kind, which also rules out honey, carmine (E120), shellac (E904), gelatine, and some processing agents. A product can be dairy-free without being vegan. If you are buying for someone with strict vegan values, look for an explicitly vegan certification rather than relying on a dairy-free claim alone.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">Why does some vegan chocolate taste waxy or gritty?</div>
+          <div class="faq-answer">
+            <p>Waxy texture usually means the manufacturer used cheap vegetable fats instead of cocoa butter. Cocoa butter melts at body temperature; other fats do not behave the same way. Grittiness comes from insufficient refining of the cocoa and sugar particles. Both are quality issues, not inherent problems with vegan chocolate. Well-made vegan chocolate using cocoa butter and properly refined ingredients does not have either problem.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">What plant milks are used in vegan milk chocolate?</div>
+          <div class="faq-answer">
+            <p>The most common are oat milk powder, rice milk powder, coconut milk powder, and almond milk powder. Oat milk is currently the most widely used in premium vegan milk chocolate because it produces the most neutral, creamy result without adding a detectable off-flavour. Each choice affects the final texture, sweetness, and taste differently, which is why the plant milk selection is one of the key decisions in recipe development for vegan milk chocolate.</p>
+          </div>
+        </div>
+
+      </div>
+      <!-- end FAQ -->
+
+    </div>
+    <!-- end article-content -->
+
+  </div>
+  <!-- end article-wrapper -->
+</div>
+<!-- end article-layout -->
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-col">
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#">Wafer Bars</a></li>
+        <li><a href="#">Butter Cups</a></li>
+        <li><a href="#">Spreads</a></li>
+        <li><a href="#">Mixed Boxes</a></li>
+        <li><a href="#">Gift Cards</a></li>
+        <li><a href="#">Best Sellers</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Vegan Recipes</h4>
+      <ul>
+        <li><a href="#">All Recipes</a></li>
+        <li><a href="#">Brownies</a></li>
+        <li><a href="#">Cookies</a></li>
+        <li><a href="#">Breakfast</a></li>
+        <li><a href="#">Treats</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>About</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Stockists</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Help</h4>
+      <ul>
+        <li><a href="#">FAQs</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Shipping</a></li>
+        <li><a href="#">Refund Policy</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© LoveRaw</span>
+    <span>Part of Smart Organic</span>
+  </div>
+</footer>
+
+<script>
+// FAQ accordion
+document.querySelectorAll('.faq-question').forEach(q => {
+  const answer = q.nextElementSibling;
+  answer.style.display = 'none';
+
+  q.addEventListener('click', function() {
+    const isOpen = this.classList.contains('open');
+
+    // Close all
+    document.querySelectorAll('.faq-question').forEach(qq => {
+      qq.classList.remove('open');
+      qq.nextElementSibling.style.display = 'none';
+    });
+
+    // Open this one if it was closed
+    if (!isOpen) {
+      this.classList.add('open');
+      answer.style.display = 'block';
+    }
+  });
+});
+</script>
+
+<style>
+.faq-question.open::after { content: '−'; }
+</style>
+
+</body>
+</html>
