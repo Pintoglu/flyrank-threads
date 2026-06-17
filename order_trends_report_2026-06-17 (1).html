@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order Trends Report — 2026-06-17</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f5f5f7;color:#1d1d1f;padding:28px;}
+  .report-header{background:#fff;border-radius:12px;border:1px solid #d2d2d7;padding:20px 26px;margin-bottom:20px;display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+  .report-header h1{font-size:20px;font-weight:700;}
+  .report-meta{font-size:12px;color:#6e6e73;}
+  .summary-bar{display:flex;gap:10px;margin-bottom:20px;flex-wrap:wrap;}
+  .stat{background:#fff;border:1px solid #d2d2d7;border-radius:10px;padding:11px 16px;min-width:110px;}
+  .stat-val{font-size:19px;font-weight:700;}
+  .stat-label{font-size:10px;color:#6e6e73;margin-top:2px;}
+  .chart-card{background:#fff;border-radius:12px;border:1px solid #d2d2d7;padding:20px 22px;margin-bottom:20px;}
+  .chart-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px;}
+  .chart-header h2{font-size:15px;font-weight:600;}
+  .chart-controls{display:flex;gap:14px;flex-wrap:wrap;}
+  .seg-group{display:flex;gap:6px;}
+  .btn-seg{padding:5px 12px;border-radius:7px;font-size:12px;font-weight:500;cursor:pointer;background:#fff;border:1px solid #d2d2d7;color:#1d1d1f;}
+  .btn-seg.active{background:#0071e3;color:#fff;border-color:#0071e3;}
+  .chart-wrap{position:relative;height:300px;}
+  .sub-section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;}
+  .sub-section-header h2{font-size:15px;font-weight:600;}
+  .sub-charts-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:20px;}
+  .table-section{background:#fff;border-radius:12px;border:1px solid #d2d2d7;}
+  .table-title{font-size:15px;font-weight:600;padding:14px 18px 10px;border-bottom:1px solid #f0f0f0;display:flex;align-items:center;gap:8px;}
+  .table-title span{font-size:12px;font-weight:400;color:#6e6e73;}
+  table{width:100%;border-collapse:collapse;font-size:12px;}
+  thead{display:table-header-group;}
+  th{padding:8px 12px;text-align:left;font-weight:600;background:#f5f5f7;border-bottom:1px solid #d2d2d7;white-space:nowrap;}
+  td{padding:7px 12px;border-bottom:1px solid #f0f0f0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  tr:last-child td{border-bottom:none;}
+  tr:nth-child(even) td{background:#fafafa;}
+
+  @media print{
+    *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;}
+    @page{margin:12mm 14mm;}
+    body{background:#fff!important;padding:0;}
+    .report-header{border:1px solid #d2d2d7;box-shadow:none;margin-bottom:12px;padding:12px 16px;}
+    .report-header h1{font-size:16px;}
+    .summary-bar{gap:6px;margin-bottom:12px;flex-wrap:nowrap;}
+    .stat{padding:7px 9px;min-width:0;flex:1;border-radius:7px;}
+    .stat-val{font-size:13px;}
+    .stat-label{font-size:8.5px;}
+    .stat > div[style]{font-size:9px!important;}
+    .chart-controls{display:none!important;}
+    .sub-section-header .seg-group{display:none!important;}
+    .sub-charts-grid{grid-template-columns:1fr 1fr;}
+    .chart-card{padding:12px 14px;margin-bottom:12px;page-break-inside:avoid;}
+    .chart-wrap{height:200px;}
+    .table-section{border:1px solid #d2d2d7;}
+    .table-title{padding:10px 12px 8px;font-size:13px;}
+    th{padding:6px 9px;font-size:10.5px;background:#f5f5f7!important;}
+    td{padding:5px 9px;font-size:10.5px;}
+    tr{page-break-inside:avoid;}
+    tr:nth-child(even) td{background:#fafafa!important;}
+  }
+</style>
+</head>
+<body>
+
+<div class="report-header">
+  <h1>Order Trends Report</h1>
+  <div class="report-meta">Generated 17/06/2026, 13:40:49</div>
+</div>
+
+<div class="summary-bar">
+    <div class="stat"><div class="stat-val">155</div><div class="stat-label">Matched orders</div></div>
+    <div class="stat"><div class="stat-val">110</div><div class="stat-label">Unique customers</div></div>
+    <div class="stat"><div class="stat-val">$5,919.64</div><div class="stat-label">Total revenue</div></div>
+    <div class="stat"><div class="stat-val">$53.81</div><div class="stat-label">Avg revenue / customer</div></div>
+    <div class="stat"><div class="stat-val">$38.19</div><div class="stat-label">Our AOV</div></div>
+    <div class="stat">
+      <div class="stat-val">$33.07</div>
+      <div class="stat-label">Client sitewide AOV</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" style="color:#34c759">+15.5%</div>
+      <div class="stat-label">AOV lift over sitewide</div>
+      <div style="font-size:11px;color:#6e6e73;margin-top:3px">$38.19 vs $33.07</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val">$3,000.00</div>
+      <div class="stat-label">Client spend</div>
+    </div>
+    <div class="stat">
+      <div class="stat-val" style="color:#34c759">1.97x</div>
+      <div class="stat-label">ROI</div>
+      <div style="font-size:11px;color:#6e6e73;margin-top:3px">per $1 spent</div>
+    </div></div>
+
+<div class="chart-card">
+  <div class="chart-header">
+    <h2 id="r-chart-title">Revenue Trend</h2>
+    <div class="chart-controls">
+      <div class="seg-group">
+        <button class="btn-seg active" onclick="setMetric('revenue',this)">Revenue</button>
+        <button class="btn-seg"        onclick="setMetric('orders',this)">Order Count</button>
+      </div>
+      <div class="seg-group">
+        <button class="btn-seg"        onclick="setGran('day',this)">Day</button>
+        <button class="btn-seg"        onclick="setGran('week',this)">Week</button>
+        <button class="btn-seg active" onclick="setGran('month',this)">Month</button>
+      </div>
+    </div>
+  </div>
+  <div class="chart-wrap"><canvas id="r-chart"></canvas></div>
+</div>
+
+
+<div style="margin-bottom:4px;">
+  <div class="sub-section-header">
+    <h2>Subscription Breakdown</h2>
+    <div class="seg-group" id="r-sub-gran-group">
+      <button class="btn-seg" onclick="setSubGran('day',this)">Day</button>
+      <button class="btn-seg" onclick="setSubGran('week',this)">Week</button>
+      <button class="btn-seg active" onclick="setSubGran('month',this)">Month</button>
+    </div>
+  </div>
+  <div class="summary-bar" style="margin-bottom:16px;">
+    <div class="stat"><div class="stat-val">111</div><div class="stat-label">Total sub orders</div></div>
+    <div class="stat"><div class="stat-val" style="color:#5856d6">75</div><div class="stat-label">New subscribers</div></div>
+    <div class="stat"><div class="stat-val" style="color:#34c759">36</div><div class="stat-label">Recurring orders</div></div>
+    <div class="stat"><div class="stat-val">$4,370.59</div><div class="stat-label">Sub revenue <span style="color:#5856d6;font-weight:600">73.83%</span></div></div>
+    <div class="stat"><div class="stat-val">$1,549.05</div><div class="stat-label">Non-sub revenue <span style="color:#0071e3;font-weight:600">26.2%</span></div></div>
+    <div class="stat"><div class="stat-val">72</div><div class="stat-label">Unique subscribers</div></div>
+    <div class="stat"><div class="stat-val">0.5</div><div class="stat-label">Avg recurring / sub</div></div>
+    <div class="stat"><div class="stat-val">$42.76</div><div class="stat-label">First order AOV</div></div>
+    <div class="stat"><div class="stat-val">$32.31</div><div class="stat-label">Recurring AOV</div></div>
+    <div class="stat"><div class="stat-val">$35.21</div><div class="stat-label">Non-sub AOV</div></div></div>
+  <div class="sub-charts-grid">
+    <div class="chart-card" style="margin-bottom:0">
+      <div class="chart-header"><h2>Revenue by Type</h2></div>
+      <div class="chart-wrap"><canvas id="r-sub-rev-chart"></canvas></div>
+    </div>
+    <div class="chart-card" style="margin-bottom:0">
+      <div class="chart-header"><h2>Subscriber Trends</h2></div>
+      <div class="chart-wrap"><canvas id="r-sub-trend-chart"></canvas></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="table-section">
+  <div class="table-title">Orders <span>155 total</span></div>
+  <table>
+    <thead><tr><th>Order #</th><th>Created At</th><th>Total</th><th>Payment</th><th>Fulfillment</th></tr></thead>
+    <tbody><tr><td>Zen40050</td><td>2026-01-07 09:47:43 -0800</td><td>$21.62</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen40114</td><td>2026-01-12 15:58:02 -0800</td><td>$81.66</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen40419</td><td>2026-01-23 10:18:13 -0800</td><td>$27.46</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen41373</td><td>2026-02-10 11:09:34 -0800</td><td>$24.80</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen41437</td><td>2026-02-11 18:45:52 -0800</td><td>$32.64</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen41438</td><td>2026-02-11 18:53:20 -0800</td><td>$32.64</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen41599</td><td>2026-02-15 09:46:11 -0800</td><td>$31.60</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen41607</td><td>2026-02-15 13:49:59 -0800</td><td>$22.21</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen41861</td><td>2026-02-20 05:07:11 -0800</td><td>$20.97</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen41950</td><td>2026-02-21 21:09:42 -0800</td><td>$27.46</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen42117</td><td>2026-02-24 07:15:38 -0800</td><td>$17.98</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen42170</td><td>2026-02-25 00:23:40 -0800</td><td>$16.34</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen42319</td><td>2026-02-27 11:25:59 -0800</td><td>$15.98</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen42364</td><td>2026-02-28 03:27:10 -0800</td><td>$52.97</td><td>partially_refunded</td><td>fulfilled</td></tr><tr><td>Zen42439</td><td>2026-03-01 14:21:50 -0800</td><td>$67.80</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen42440</td><td>2026-03-01 14:39:49 -0800</td><td>$46.46</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen42982</td><td>2026-03-09 01:18:09 -0700</td><td>$40.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen43161</td><td>2026-03-11 07:46:36 -0700</td><td>$43.22</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen43211</td><td>2026-03-11 20:34:30 -0700</td><td>$26.55</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen43216</td><td>2026-03-11 21:11:53 -0700</td><td>$29.65</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen43254</td><td>2026-03-12 12:56:45 -0700</td><td>$27.55</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen43360</td><td>2026-03-13 15:01:22 -0700</td><td>$51.63</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen43576</td><td>2026-03-15 18:29:03 -0700</td><td>$27.02</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen43689</td><td>2026-03-16 21:11:27 -0700</td><td>$26.52</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen43734</td><td>2026-03-17 11:47:16 -0700</td><td>$22.12</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen43758</td><td>2026-03-17 14:27:12 -0700</td><td>$49.99</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen44148</td><td>2026-03-21 12:08:32 -0700</td><td>$16.46</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen44278</td><td>2026-03-22 13:04:39 -0700</td><td>$31.98</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen44470</td><td>2026-03-24 03:23:17 -0700</td><td>$19.08</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen44636</td><td>2026-03-25 11:33:16 -0700</td><td>$24.99</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen44685</td><td>2026-03-25 21:13:57 -0700</td><td>$22.47</td><td>refunded</td><td>fulfilled</td></tr><tr><td>Zen44760</td><td>2026-03-26 17:59:51 -0700</td><td>$55.85</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen44825</td><td>2026-03-27 07:52:12 -0700</td><td>$36.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen44972</td><td>2026-03-28 16:20:08 -0700</td><td>$23.58</td><td>partially_refunded</td><td>fulfilled</td></tr><tr><td>Zen45012</td><td>2026-03-28 21:11:34 -0700</td><td>$19.97</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen45115</td><td>2026-03-29 20:04:46 -0700</td><td>$58.19</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen45141</td><td>2026-03-29 23:36:15 -0700</td><td>$24.84</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen45207</td><td>2026-03-30 21:11:04 -0700</td><td>$48.16</td><td>refunded</td><td>fulfilled</td></tr><tr><td>Zen45215</td><td>2026-03-30 21:11:07 -0700</td><td>$46.46</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen45367</td><td>2026-04-01 09:27:43 -0700</td><td>$29.99</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen45388</td><td>2026-04-01 12:49:12 -0700</td><td>$22.49</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen45410</td><td>2026-04-01 16:35:58 -0700</td><td>$24.99</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen45493</td><td>2026-04-02 07:46:30 -0700</td><td>$19.91</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen45793</td><td>2026-04-04 06:51:11 -0700</td><td>$22.50</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen45962</td><td>2026-04-06 08:41:28 -0700</td><td>$15.75</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen46109</td><td>2026-04-07 08:00:03 -0700</td><td>$41.29</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen46230</td><td>2026-04-07 20:50:27 -0700</td><td>$55.98</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen46321</td><td>2026-04-08 08:28:32 -0700</td><td>$42.99</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen46351</td><td>2026-04-08 11:22:02 -0700</td><td>$24.36</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen46572</td><td>2026-04-09 21:14:23 -0700</td><td>$21.07</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen46605</td><td>2026-04-10 05:15:15 -0700</td><td>$64.55</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen46822</td><td>2026-04-11 19:14:45 -0700</td><td>$22.49</td><td>partially_refunded</td><td>fulfilled</td></tr><tr><td>Zen46993</td><td>2026-04-12 20:45:16 -0700</td><td>$27.55</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47092</td><td>2026-04-13 10:05:52 -0700</td><td>$43.39</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47349</td><td>2026-04-15 06:41:58 -0700</td><td>$38.79</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47420</td><td>2026-04-15 21:15:43 -0700</td><td>$45.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47442</td><td>2026-04-15 21:15:49 -0700</td><td>$21.07</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47485</td><td>2026-04-16 04:44:39 -0700</td><td>$18.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47487</td><td>2026-04-16 04:54:10 -0700</td><td>$18.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47530</td><td>2026-04-16 12:19:21 -0700</td><td>$45.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47697</td><td>2026-04-17 16:09:10 -0700</td><td>$32.09</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47808</td><td>2026-04-18 10:45:09 -0700</td><td>$60.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47818</td><td>2026-04-18 11:56:30 -0700</td><td>$93.95</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47949</td><td>2026-04-19 13:29:01 -0700</td><td>$14.29</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen47962</td><td>2026-04-19 17:31:15 -0700</td><td>$50.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48005</td><td>2026-04-19 21:16:06 -0700</td><td>$20.57</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48015</td><td>2026-04-19 22:22:25 -0700</td><td>$26.54</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48017</td><td>2026-04-20 02:02:11 -0700</td><td>$18.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48047</td><td>2026-04-20 05:49:16 -0700</td><td>$40.38</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48188</td><td>2026-04-21 06:18:12 -0700</td><td>$46.79</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48197</td><td>2026-04-21 09:53:58 -0700</td><td>$24.99</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48404</td><td>2026-04-22 21:16:46 -0700</td><td>$23.85</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48432</td><td>2026-04-23 01:23:31 -0700</td><td>$18.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48472</td><td>2026-04-23 18:52:03 -0700</td><td>$37.14</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48672</td><td>2026-04-25 21:13:31 -0700</td><td>$45.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48794</td><td>2026-04-27 06:03:49 -0700</td><td>$26.92</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48815</td><td>2026-04-27 12:15:39 -0700</td><td>$32.44</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48870</td><td>2026-04-27 21:15:45 -0700</td><td>$72.74</td><td>refunded</td><td>fulfilled</td></tr><tr><td>Zen48930</td><td>2026-04-28 14:46:11 -0700</td><td>$29.99</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48945</td><td>2026-04-28 17:54:37 -0700</td><td>$30.67</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48959</td><td>2026-04-28 21:13:47 -0700</td><td>$24.84</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen48999</td><td>2026-04-29 01:24:59 -0700</td><td>$22.50</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen49090</td><td>2026-04-29 18:34:41 -0700</td><td>$36.16</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen49329</td><td>2026-05-01 16:17:42 -0700</td><td>$23.58</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen49356</td><td>2026-05-01 21:15:57 -0700</td><td>$24.88</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen49428</td><td>2026-05-02 10:01:20 -0700</td><td>$24.69</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen49458</td><td>2026-05-02 17:56:43 -0700</td><td>$74.55</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen49613</td><td>2026-05-03 21:14:53 -0700</td><td>$22.50</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen49632</td><td>2026-05-04 07:45:44 -0700</td><td>$23.70</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen49742</td><td>2026-05-05 09:16:44 -0700</td><td>$147.26</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen49777</td><td>2026-05-05 17:58:24 -0700</td><td>$38.33</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen49797</td><td>2026-05-05 21:14:39 -0700</td><td>$22.50</td><td>refunded</td><td>fulfilled</td></tr><tr><td>Zen49854</td><td>2026-05-06 11:45:27 -0700</td><td>$43.90</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen50070</td><td>2026-05-07 15:23:19 -0700</td><td>$32.80</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen50229</td><td>2026-05-08 06:28:06 -0700</td><td>$47.87</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen50315</td><td>2026-05-08 17:02:51 -0700</td><td>$66.89</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen50460</td><td>2026-05-09 10:30:41 -0700</td><td>$82.71</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen50463</td><td>2026-05-09 10:56:55 -0700</td><td>$26.49</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen50572</td><td>2026-05-09 21:15:46 -0700</td><td>$80.69</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen50886</td><td>2026-05-11 16:32:47 -0700</td><td>$15.75</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen51071</td><td>2026-05-12 18:28:40 -0700</td><td>$44.63</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen51175</td><td>2026-05-13 06:07:42 -0700</td><td>$47.08</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen51202</td><td>2026-05-13 11:44:50 -0700</td><td>$24.99</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen51254</td><td>2026-05-13 18:50:25 -0700</td><td>$47.53</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen51543</td><td>2026-05-15 17:46:21 -0700</td><td>$41.29</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen51583</td><td>2026-05-15 21:15:07 -0700</td><td>$22.50</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen51593</td><td>2026-05-15 21:15:08 -0700</td><td>$22.50</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen51630</td><td>2026-05-16 08:25:50 -0700</td><td>$29.99</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen51862</td><td>2026-05-18 15:15:39 -0700</td><td>$32.50</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen51998</td><td>2026-05-19 20:08:35 -0700</td><td>$39.99</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52026</td><td>2026-05-19 21:15:23 -0700</td><td>$22.50</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52037</td><td>2026-05-19 21:15:25 -0700</td><td>$23.91</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52089</td><td>2026-05-20 10:07:23 -0700</td><td>$47.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52196</td><td>2026-05-21 07:58:24 -0700</td><td>$16.90</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52202</td><td>2026-05-21 10:33:05 -0700</td><td>$15.75</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52288</td><td>2026-05-21 22:00:13 -0700</td><td>$75.25</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52318</td><td>2026-05-22 10:05:22 -0700</td><td>$31.54</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52372</td><td>2026-05-22 21:12:49 -0700</td><td>$46.43</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52458</td><td>2026-05-23 16:53:04 -0700</td><td>$59.08</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52514</td><td>2026-05-24 00:56:45 -0700</td><td>$44.63</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52526</td><td>2026-05-24 05:30:24 -0700</td><td>$32.24</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52562</td><td>2026-05-24 12:04:53 -0700</td><td>$23.93</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52605</td><td>2026-05-24 21:13:25 -0700</td><td>$22.47</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52671</td><td>2026-05-25 12:27:50 -0700</td><td>$32.23</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52854</td><td>2026-05-26 18:37:27 -0700</td><td>$60.62</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52870</td><td>2026-05-26 21:14:10 -0700</td><td>$40.54</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52901</td><td>2026-05-26 22:03:10 -0700</td><td>$31.93</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52906</td><td>2026-05-27 01:50:06 -0700</td><td>$96.27</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52935</td><td>2026-05-27 12:31:19 -0700</td><td>$72.50</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52944</td><td>2026-05-27 15:40:58 -0700</td><td>$79.81</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52956</td><td>2026-05-27 19:02:43 -0700</td><td>$22.49</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen52987</td><td>2026-05-27 21:16:14 -0700</td><td>$36.25</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53017</td><td>2026-05-28 07:26:23 -0700</td><td>$73.20</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53025</td><td>2026-05-28 09:14:11 -0700</td><td>$101.82</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53085</td><td>2026-05-28 21:13:11 -0700</td><td>$24.84</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53094</td><td>2026-05-28 21:13:15 -0700</td><td>$22.50</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53121</td><td>2026-05-29 04:18:18 -0700</td><td>$22.49</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53162</td><td>2026-05-29 21:13:49 -0700</td><td>$20.42</td><td>refunded</td><td>fulfilled</td></tr><tr><td>Zen53209</td><td>2026-05-30 16:17:08 -0700</td><td>$24.42</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53325</td><td>2026-05-31 21:18:10 -0700</td><td>$47.92</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53374</td><td>2026-06-01 18:07:54 -0700</td><td>$59.62</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53471</td><td>2026-06-02 21:15:26 -0700</td><td>$23.70</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53482</td><td>2026-06-02 21:15:33 -0700</td><td>$22.50</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53545</td><td>2026-06-03 19:17:47 -0700</td><td>$22.50</td><td>paid</td><td>partial</td></tr><tr><td>Zen53588</td><td>2026-06-04 01:52:50 -0700</td><td>$158.52</td><td>paid</td><td>partial</td></tr><tr><td>Zen53610</td><td>2026-06-04 13:12:41 -0700</td><td>$34.00</td><td>paid</td><td>partial</td></tr><tr><td>Zen53679</td><td>2026-06-05 06:13:43 -0700</td><td>$42.50</td><td>paid</td><td>partial</td></tr><tr><td>Zen53685</td><td>2026-06-05 13:12:30 -0700</td><td>$45.00</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen53785</td><td>2026-06-06 10:51:56 -0700</td><td>$34.00</td><td>paid</td><td>partial</td></tr><tr><td>Zen53981</td><td>2026-06-08 08:58:22 -0700</td><td>$42.50</td><td>paid</td><td>partial</td></tr><tr><td>Zen54010</td><td>2026-06-08 17:21:49 -0700</td><td>$36.81</td><td>paid</td><td>partial</td></tr><tr><td>Zen54522</td><td>2026-06-13 05:50:59 -0700</td><td>$48.51</td><td>paid</td><td>partial</td></tr><tr><td>Zen54534</td><td>2026-06-13 09:12:13 -0700</td><td>$23.85</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen54617</td><td>2026-06-14 07:00:48 -0700</td><td>$54.83</td><td>paid</td><td>fulfilled</td></tr><tr><td>Zen54857</td><td>2026-06-16 06:52:40 -0700</td><td>$40.95</td><td>paid</td><td>fulfilled</td></tr></tbody>
+  </table>
+</div>
+
+
+
+<script>
+const _data = {"byDay":[{"date":"2026-01-07","total":21.62,"count":1},{"date":"2026-01-12","total":81.66,"count":1},{"date":"2026-01-23","total":27.46,"count":1},{"date":"2026-02-10","total":24.8,"count":1},{"date":"2026-02-11","total":65.28,"count":2},{"date":"2026-02-15","total":53.81,"count":2},{"date":"2026-02-20","total":20.97,"count":1},{"date":"2026-02-21","total":27.46,"count":1},{"date":"2026-02-24","total":34.32,"count":2},{"date":"2026-02-27","total":15.98,"count":1},{"date":"2026-02-28","total":52.97,"count":1},{"date":"2026-03-01","total":114.26,"count":2},{"date":"2026-03-09","total":40,"count":1},{"date":"2026-03-11","total":99.42,"count":3},{"date":"2026-03-12","total":27.55,"count":1},{"date":"2026-03-13","total":51.63,"count":1},{"date":"2026-03-15","total":27.02,"count":1},{"date":"2026-03-16","total":26.52,"count":1},{"date":"2026-03-17","total":72.11,"count":2},{"date":"2026-03-21","total":16.46,"count":1},{"date":"2026-03-22","total":31.98,"count":1},{"date":"2026-03-24","total":19.08,"count":1},{"date":"2026-03-25","total":47.46,"count":2},{"date":"2026-03-26","total":55.85,"count":1},{"date":"2026-03-27","total":36,"count":1},{"date":"2026-03-28","total":43.55,"count":2},{"date":"2026-03-29","total":83.03,"count":2},{"date":"2026-03-30","total":94.62,"count":2},{"date":"2026-04-01","total":77.47,"count":3},{"date":"2026-04-02","total":19.91,"count":1},{"date":"2026-04-04","total":22.5,"count":1},{"date":"2026-04-06","total":15.75,"count":1},{"date":"2026-04-07","total":97.27,"count":2},{"date":"2026-04-08","total":67.35,"count":2},{"date":"2026-04-09","total":21.07,"count":1},{"date":"2026-04-10","total":64.55,"count":1},{"date":"2026-04-11","total":22.49,"count":1},{"date":"2026-04-12","total":27.55,"count":1},{"date":"2026-04-13","total":43.39,"count":1},{"date":"2026-04-15","total":104.86,"count":3},{"date":"2026-04-16","total":81,"count":3},{"date":"2026-04-17","total":32.09,"count":1},{"date":"2026-04-18","total":153.95,"count":2},{"date":"2026-04-19","total":111.4,"count":4},{"date":"2026-04-20","total":58.38,"count":2},{"date":"2026-04-21","total":71.78,"count":2},{"date":"2026-04-22","total":41.85,"count":2},{"date":"2026-04-23","total":37.14,"count":1},{"date":"2026-04-25","total":45,"count":1},{"date":"2026-04-27","total":132.1,"count":3},{"date":"2026-04-28","total":108,"count":4},{"date":"2026-04-29","total":36.16,"count":1},{"date":"2026-05-01","total":48.46,"count":2},{"date":"2026-05-02","total":99.24,"count":2},{"date":"2026-05-03","total":22.5,"count":1},{"date":"2026-05-04","total":23.7,"count":1},{"date":"2026-05-05","total":208.09,"count":3},{"date":"2026-05-06","total":43.9,"count":1},{"date":"2026-05-07","total":32.8,"count":1},{"date":"2026-05-08","total":114.76,"count":2},{"date":"2026-05-09","total":189.89,"count":3},{"date":"2026-05-11","total":15.75,"count":1},{"date":"2026-05-12","total":44.63,"count":1},{"date":"2026-05-13","total":119.6,"count":3},{"date":"2026-05-15","total":86.29,"count":3},{"date":"2026-05-16","total":29.99,"count":1},{"date":"2026-05-18","total":32.5,"count":1},{"date":"2026-05-19","total":86.4,"count":3},{"date":"2026-05-20","total":47,"count":1},{"date":"2026-05-21","total":107.9,"count":3},{"date":"2026-05-22","total":77.97,"count":2},{"date":"2026-05-23","total":103.71,"count":2},{"date":"2026-05-24","total":78.64,"count":3},{"date":"2026-05-25","total":32.23,"count":1},{"date":"2026-05-26","total":229.36,"count":4},{"date":"2026-05-27","total":211.05,"count":4},{"date":"2026-05-28","total":222.36,"count":4},{"date":"2026-05-29","total":42.91,"count":2},{"date":"2026-05-30","total":24.42,"count":1},{"date":"2026-05-31","total":47.92,"count":1},{"date":"2026-06-01","total":59.62,"count":1},{"date":"2026-06-02","total":46.2,"count":2},{"date":"2026-06-03","total":181.02,"count":2},{"date":"2026-06-04","total":34,"count":1},{"date":"2026-06-05","total":87.5,"count":2},{"date":"2026-06-06","total":34,"count":1},{"date":"2026-06-08","total":79.31,"count":2},{"date":"2026-06-13","total":72.36,"count":2},{"date":"2026-06-14","total":54.83,"count":1},{"date":"2026-06-16","total":40.95,"count":1}],"byWeek":[{"date":"2026-01-05","total":21.62,"count":1},{"date":"2026-01-12","total":81.66,"count":1},{"date":"2026-01-19","total":27.46,"count":1},{"date":"2026-02-09","total":143.89,"count":5},{"date":"2026-02-16","total":48.43,"count":2},{"date":"2026-02-22","total":16.34,"count":1},{"date":"2026-02-23","total":201.19,"count":5},{"date":"2026-03-09","total":245.62,"count":7},{"date":"2026-03-16","total":147.07,"count":5},{"date":"2026-03-23","total":284.97,"count":9},{"date":"2026-03-30","total":214.5,"count":7},{"date":"2026-04-06","total":316.03,"count":9},{"date":"2026-04-13","total":526.69,"count":14},{"date":"2026-04-19","total":18,"count":1},{"date":"2026-04-20","total":236.15,"count":7},{"date":"2026-04-26","total":22.5,"count":1},{"date":"2026-04-27","total":423.96,"count":12},{"date":"2026-05-04","total":613.14,"count":11},{"date":"2026-05-11","total":296.26,"count":9},{"date":"2026-05-17","total":44.63,"count":1},{"date":"2026-05-18","total":489.49,"count":14},{"date":"2026-05-24","total":96.27,"count":1},{"date":"2026-05-25","total":713.98,"count":16},{"date":"2026-05-31","total":158.52,"count":1},{"date":"2026-06-01","total":283.82,"count":8},{"date":"2026-06-08","total":206.5,"count":5},{"date":"2026-06-15","total":40.95,"count":1}],"byMonth":[{"date":"2026-01","total":130.74,"count":3},{"date":"2026-02","total":295.59,"count":11},{"date":"2026-03","total":886.54,"count":25},{"date":"2026-04","total":1493.01,"count":44},{"date":"2026-05","total":2423.97,"count":57},{"date":"2026-06","total":689.79,"count":15}],"subStats":{"totalSubOrders":111,"newSubscribers":75,"recurringOrders":36,"nonSubOrders":44,"subRevenue":4370.59,"nonSubRevenue":1549.05,"subRevenuePercent":73.83,"uniqueSubscribers":72,"avgRecurPerSub":0.5,"firstAOV":42.76,"recurAOV":32.31,"nonSubAOV":35.21,"subByDay":[{"date":"2026-01-07","subRevenue":0,"recurRevenue":0,"nonSubRevenue":21.62,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-01-12","subRevenue":0,"recurRevenue":0,"nonSubRevenue":81.66,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-01-23","subRevenue":27.46,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-02-10","subRevenue":24.8,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-02-11","subRevenue":0,"recurRevenue":0,"nonSubRevenue":65.28,"firstCount":0,"recurCount":0,"nonSubCount":2},{"date":"2026-02-15","subRevenue":22.21,"recurRevenue":0,"nonSubRevenue":31.6,"firstCount":1,"recurCount":0,"nonSubCount":1},{"date":"2026-02-20","subRevenue":20.97,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-02-21","subRevenue":0,"recurRevenue":27.46,"nonSubRevenue":0,"firstCount":0,"recurCount":1,"nonSubCount":0},{"date":"2026-02-24","subRevenue":34.32,"recurRevenue":0,"nonSubRevenue":0,"firstCount":2,"recurCount":0,"nonSubCount":0},{"date":"2026-02-27","subRevenue":15.98,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-02-28","subRevenue":0,"recurRevenue":0,"nonSubRevenue":52.97,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-03-01","subRevenue":114.26,"recurRevenue":0,"nonSubRevenue":0,"firstCount":2,"recurCount":0,"nonSubCount":0},{"date":"2026-03-09","subRevenue":0,"recurRevenue":0,"nonSubRevenue":40,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-03-11","subRevenue":43.22,"recurRevenue":29.65,"nonSubRevenue":26.55,"firstCount":1,"recurCount":1,"nonSubCount":1},{"date":"2026-03-12","subRevenue":0,"recurRevenue":0,"nonSubRevenue":27.55,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-03-13","subRevenue":0,"recurRevenue":0,"nonSubRevenue":51.63,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-03-15","subRevenue":0,"recurRevenue":0,"nonSubRevenue":27.02,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-03-16","subRevenue":0,"recurRevenue":26.52,"nonSubRevenue":0,"firstCount":0,"recurCount":1,"nonSubCount":0},{"date":"2026-03-17","subRevenue":72.11,"recurRevenue":0,"nonSubRevenue":0,"firstCount":2,"recurCount":0,"nonSubCount":0},{"date":"2026-03-21","subRevenue":16.46,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-03-22","subRevenue":31.98,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-03-24","subRevenue":19.08,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-03-25","subRevenue":0,"recurRevenue":22.47,"nonSubRevenue":24.99,"firstCount":0,"recurCount":1,"nonSubCount":1},{"date":"2026-03-26","subRevenue":55.85,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-03-27","subRevenue":36,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-03-28","subRevenue":0,"recurRevenue":19.97,"nonSubRevenue":23.58,"firstCount":0,"recurCount":1,"nonSubCount":1},{"date":"2026-03-29","subRevenue":83.03,"recurRevenue":0,"nonSubRevenue":0,"firstCount":2,"recurCount":0,"nonSubCount":0},{"date":"2026-03-30","subRevenue":0,"recurRevenue":94.62,"nonSubRevenue":0,"firstCount":0,"recurCount":2,"nonSubCount":0},{"date":"2026-04-01","subRevenue":0,"recurRevenue":0,"nonSubRevenue":77.47,"firstCount":0,"recurCount":0,"nonSubCount":3},{"date":"2026-04-02","subRevenue":19.91,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-04-04","subRevenue":22.5,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-04-06","subRevenue":15.75,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-04-07","subRevenue":55.98,"recurRevenue":0,"nonSubRevenue":41.29,"firstCount":1,"recurCount":0,"nonSubCount":1},{"date":"2026-04-08","subRevenue":24.36,"recurRevenue":0,"nonSubRevenue":42.99,"firstCount":1,"recurCount":0,"nonSubCount":1},{"date":"2026-04-09","subRevenue":0,"recurRevenue":21.07,"nonSubRevenue":0,"firstCount":0,"recurCount":1,"nonSubCount":0},{"date":"2026-04-10","subRevenue":64.55,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-04-11","subRevenue":0,"recurRevenue":0,"nonSubRevenue":22.49,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-04-12","subRevenue":0,"recurRevenue":0,"nonSubRevenue":27.55,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-04-13","subRevenue":0,"recurRevenue":0,"nonSubRevenue":43.39,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-04-15","subRevenue":38.79,"recurRevenue":66.07,"nonSubRevenue":0,"firstCount":1,"recurCount":2,"nonSubCount":0},{"date":"2026-04-16","subRevenue":81,"recurRevenue":0,"nonSubRevenue":0,"firstCount":3,"recurCount":0,"nonSubCount":0},{"date":"2026-04-17","subRevenue":0,"recurRevenue":0,"nonSubRevenue":32.09,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-04-18","subRevenue":93.95,"recurRevenue":0,"nonSubRevenue":60,"firstCount":1,"recurCount":0,"nonSubCount":1},{"date":"2026-04-19","subRevenue":0,"recurRevenue":34.86,"nonSubRevenue":76.54,"firstCount":0,"recurCount":2,"nonSubCount":2},{"date":"2026-04-20","subRevenue":58.38,"recurRevenue":0,"nonSubRevenue":0,"firstCount":2,"recurCount":0,"nonSubCount":0},{"date":"2026-04-21","subRevenue":0,"recurRevenue":0,"nonSubRevenue":71.78,"firstCount":0,"recurCount":0,"nonSubCount":2},{"date":"2026-04-22","subRevenue":18,"recurRevenue":23.85,"nonSubRevenue":0,"firstCount":1,"recurCount":1,"nonSubCount":0},{"date":"2026-04-23","subRevenue":37.14,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-04-25","subRevenue":0,"recurRevenue":45,"nonSubRevenue":0,"firstCount":0,"recurCount":1,"nonSubCount":0},{"date":"2026-04-27","subRevenue":32.44,"recurRevenue":72.74,"nonSubRevenue":26.92,"firstCount":1,"recurCount":1,"nonSubCount":1},{"date":"2026-04-28","subRevenue":53.17,"recurRevenue":24.84,"nonSubRevenue":29.99,"firstCount":2,"recurCount":1,"nonSubCount":1},{"date":"2026-04-29","subRevenue":36.16,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-05-01","subRevenue":0,"recurRevenue":24.88,"nonSubRevenue":23.58,"firstCount":0,"recurCount":1,"nonSubCount":1},{"date":"2026-05-02","subRevenue":74.55,"recurRevenue":0,"nonSubRevenue":24.69,"firstCount":1,"recurCount":0,"nonSubCount":1},{"date":"2026-05-03","subRevenue":0,"recurRevenue":22.5,"nonSubRevenue":0,"firstCount":0,"recurCount":1,"nonSubCount":0},{"date":"2026-05-04","subRevenue":23.7,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-05-05","subRevenue":147.26,"recurRevenue":22.5,"nonSubRevenue":38.33,"firstCount":1,"recurCount":1,"nonSubCount":1},{"date":"2026-05-06","subRevenue":0,"recurRevenue":0,"nonSubRevenue":43.9,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-05-07","subRevenue":32.8,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-05-08","subRevenue":114.76,"recurRevenue":0,"nonSubRevenue":0,"firstCount":2,"recurCount":0,"nonSubCount":0},{"date":"2026-05-09","subRevenue":82.71,"recurRevenue":80.69,"nonSubRevenue":26.49,"firstCount":1,"recurCount":1,"nonSubCount":1},{"date":"2026-05-11","subRevenue":15.75,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-05-12","subRevenue":44.63,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-05-13","subRevenue":94.61,"recurRevenue":0,"nonSubRevenue":24.99,"firstCount":2,"recurCount":0,"nonSubCount":1},{"date":"2026-05-15","subRevenue":0,"recurRevenue":45,"nonSubRevenue":41.29,"firstCount":0,"recurCount":2,"nonSubCount":1},{"date":"2026-05-16","subRevenue":0,"recurRevenue":0,"nonSubRevenue":29.99,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-05-18","subRevenue":32.5,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-05-19","subRevenue":0,"recurRevenue":46.41,"nonSubRevenue":39.99,"firstCount":0,"recurCount":2,"nonSubCount":1},{"date":"2026-05-20","subRevenue":47,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-05-21","subRevenue":107.9,"recurRevenue":0,"nonSubRevenue":0,"firstCount":3,"recurCount":0,"nonSubCount":0},{"date":"2026-05-22","subRevenue":31.54,"recurRevenue":46.43,"nonSubRevenue":0,"firstCount":1,"recurCount":1,"nonSubCount":0},{"date":"2026-05-23","subRevenue":44.63,"recurRevenue":0,"nonSubRevenue":59.08,"firstCount":1,"recurCount":0,"nonSubCount":1},{"date":"2026-05-24","subRevenue":23.93,"recurRevenue":22.47,"nonSubRevenue":32.24,"firstCount":1,"recurCount":1,"nonSubCount":1},{"date":"2026-05-25","subRevenue":32.23,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-05-26","subRevenue":96.27,"recurRevenue":40.54,"nonSubRevenue":92.55,"firstCount":1,"recurCount":1,"nonSubCount":2},{"date":"2026-05-27","subRevenue":152.31,"recurRevenue":36.25,"nonSubRevenue":22.49,"firstCount":2,"recurCount":1,"nonSubCount":1},{"date":"2026-05-28","subRevenue":175.02,"recurRevenue":47.34,"nonSubRevenue":0,"firstCount":2,"recurCount":2,"nonSubCount":0},{"date":"2026-05-29","subRevenue":0,"recurRevenue":20.42,"nonSubRevenue":22.49,"firstCount":0,"recurCount":1,"nonSubCount":1},{"date":"2026-05-30","subRevenue":24.42,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-05-31","subRevenue":0,"recurRevenue":47.92,"nonSubRevenue":0,"firstCount":0,"recurCount":1,"nonSubCount":0},{"date":"2026-06-01","subRevenue":0,"recurRevenue":59.62,"nonSubRevenue":0,"firstCount":0,"recurCount":1,"nonSubCount":0},{"date":"2026-06-02","subRevenue":0,"recurRevenue":46.2,"nonSubRevenue":0,"firstCount":0,"recurCount":2,"nonSubCount":0},{"date":"2026-06-03","subRevenue":181.02,"recurRevenue":0,"nonSubRevenue":0,"firstCount":2,"recurCount":0,"nonSubCount":0},{"date":"2026-06-04","subRevenue":34,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-06-05","subRevenue":42.5,"recurRevenue":45,"nonSubRevenue":0,"firstCount":1,"recurCount":1,"nonSubCount":0},{"date":"2026-06-06","subRevenue":34,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-06-08","subRevenue":79.31,"recurRevenue":0,"nonSubRevenue":0,"firstCount":2,"recurCount":0,"nonSubCount":0},{"date":"2026-06-13","subRevenue":72.36,"recurRevenue":0,"nonSubRevenue":0,"firstCount":2,"recurCount":0,"nonSubCount":0},{"date":"2026-06-14","subRevenue":54.83,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-06-16","subRevenue":40.95,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0}],"subByWeek":[{"date":"2026-01-05","subRevenue":0,"recurRevenue":0,"nonSubRevenue":21.62,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-01-12","subRevenue":0,"recurRevenue":0,"nonSubRevenue":81.66,"firstCount":0,"recurCount":0,"nonSubCount":1},{"date":"2026-01-19","subRevenue":27.46,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-02-09","subRevenue":47.01,"recurRevenue":0,"nonSubRevenue":96.88,"firstCount":2,"recurCount":0,"nonSubCount":3},{"date":"2026-02-16","subRevenue":20.97,"recurRevenue":27.46,"nonSubRevenue":0,"firstCount":1,"recurCount":1,"nonSubCount":0},{"date":"2026-02-22","subRevenue":16.34,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-02-23","subRevenue":148.22,"recurRevenue":0,"nonSubRevenue":52.97,"firstCount":4,"recurCount":0,"nonSubCount":1},{"date":"2026-03-09","subRevenue":43.22,"recurRevenue":29.65,"nonSubRevenue":172.75,"firstCount":1,"recurCount":1,"nonSubCount":5},{"date":"2026-03-16","subRevenue":120.55,"recurRevenue":26.52,"nonSubRevenue":0,"firstCount":4,"recurCount":1,"nonSubCount":0},{"date":"2026-03-23","subRevenue":193.96,"recurRevenue":42.44,"nonSubRevenue":48.57,"firstCount":5,"recurCount":2,"nonSubCount":2},{"date":"2026-03-30","subRevenue":42.41,"recurRevenue":94.62,"nonSubRevenue":77.47,"firstCount":2,"recurCount":2,"nonSubCount":3},{"date":"2026-04-06","subRevenue":160.64,"recurRevenue":21.07,"nonSubRevenue":134.32,"firstCount":4,"recurCount":1,"nonSubCount":4},{"date":"2026-04-13","subRevenue":213.74,"recurRevenue":100.93,"nonSubRevenue":212.02,"firstCount":5,"recurCount":4,"nonSubCount":5},{"date":"2026-04-19","subRevenue":18,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-04-20","subRevenue":95.52,"recurRevenue":68.85,"nonSubRevenue":71.78,"firstCount":3,"recurCount":2,"nonSubCount":2},{"date":"2026-04-26","subRevenue":22.5,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-04-27","subRevenue":173.82,"recurRevenue":144.96,"nonSubRevenue":105.18,"firstCount":4,"recurCount":4,"nonSubCount":4},{"date":"2026-05-04","subRevenue":401.23,"recurRevenue":103.19,"nonSubRevenue":108.72,"firstCount":6,"recurCount":2,"nonSubCount":3},{"date":"2026-05-11","subRevenue":154.99,"recurRevenue":45,"nonSubRevenue":96.27,"firstCount":4,"recurCount":2,"nonSubCount":3},{"date":"2026-05-17","subRevenue":44.63,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-05-18","subRevenue":242.87,"recurRevenue":115.31,"nonSubRevenue":131.31,"firstCount":7,"recurCount":4,"nonSubCount":3},{"date":"2026-05-24","subRevenue":96.27,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-05-25","subRevenue":383.98,"recurRevenue":192.47,"nonSubRevenue":137.53,"firstCount":6,"recurCount":6,"nonSubCount":4},{"date":"2026-05-31","subRevenue":158.52,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0},{"date":"2026-06-01","subRevenue":133,"recurRevenue":150.82,"nonSubRevenue":0,"firstCount":4,"recurCount":4,"nonSubCount":0},{"date":"2026-06-08","subRevenue":206.5,"recurRevenue":0,"nonSubRevenue":0,"firstCount":5,"recurCount":0,"nonSubCount":0},{"date":"2026-06-15","subRevenue":40.95,"recurRevenue":0,"nonSubRevenue":0,"firstCount":1,"recurCount":0,"nonSubCount":0}],"subByMonth":[{"date":"2026-01","subRevenue":27.46,"recurRevenue":0,"nonSubRevenue":103.28,"firstCount":1,"recurCount":0,"nonSubCount":2},{"date":"2026-02","subRevenue":118.28,"recurRevenue":27.46,"nonSubRevenue":149.85,"firstCount":6,"recurCount":1,"nonSubCount":4},{"date":"2026-03","subRevenue":471.99,"recurRevenue":193.23,"nonSubRevenue":221.32,"firstCount":12,"recurCount":6,"nonSubCount":7},{"date":"2026-04","subRevenue":652.08,"recurRevenue":288.43,"nonSubRevenue":552.5,"firstCount":19,"recurCount":9,"nonSubCount":16},{"date":"2026-05","subRevenue":1398.52,"recurRevenue":503.35,"nonSubRevenue":522.1,"firstCount":26,"recurCount":16,"nonSubCount":15},{"date":"2026-06","subRevenue":538.97,"recurRevenue":150.82,"nonSubRevenue":0,"firstCount":11,"recurCount":4,"nonSubCount":0}]},"hasSubscriptions":true};
+const _currency = "$";
+const _monthlySpend = 500;
+let _metric = 'revenue', _gran = 'month', _chart = null;
+
+function getBuckets() {
+  return _gran==='day'?_data.byDay:_gran==='week'?_data.byWeek:_data.byMonth;
+}
+
+function renderChart() {
+  const buckets = getBuckets();
+  const labels  = buckets.map(b=>b.date);
+  const values  = buckets.map(b=>_metric==='revenue'?b.total:b.count);
+  document.getElementById('r-chart-title').textContent = _metric==='revenue'?'Revenue Trend':'Order Count Trend';
+  if (_chart) _chart.destroy();
+
+  const datasets = [{
+    type:'bar', label:_metric==='revenue'?'Revenue':'Order Count',
+    data:values, backgroundColor:'rgba(0,113,227,0.75)',
+    borderColor:'#0071e3', borderWidth:1, borderRadius:4, order:2,
+  }];
+  if (_monthlySpend > 0 && _metric==='revenue') {
+    datasets.push({
+      type:'line', label:'Monthly spend',
+      data:labels.map(()=>_monthlySpend),
+      borderColor:'#FFD60A', borderWidth:2.5, borderDash:[6,4],
+      pointRadius:0, pointHoverRadius:4, pointHoverBackgroundColor:'#FFD60A',
+      fill:false, tension:0, order:1,
+    });
+  }
+
+  _chart = new Chart(document.getElementById('r-chart').getContext('2d'), {
+    type:'bar',
+    data:{labels, datasets},
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{
+        legend:{display:_monthlySpend>0&&_metric==='revenue',labels:{boxWidth:14,font:{size:12}}},
+        tooltip:{callbacks:{label:ctx=>{
+          if(ctx.dataset.label==='Monthly spend') return 'Monthly spend: '+_currency+ctx.parsed.y.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2});
+          return _metric==='revenue'?_currency+ctx.parsed.y.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}):ctx.parsed.y+' orders';
+        }}},
+      },
+      scales:{x:{grid:{display:false}},y:{beginAtZero:true,ticks:{callback:v=>_metric==='revenue'?_currency+v.toLocaleString():v}}},
+    },
+  });
+}
+
+function setMetric(m, btn) {
+  _metric = m;
+  btn.closest('.seg-group').querySelectorAll('.btn-seg').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderChart();
+}
+
+function setGran(g, btn) {
+  _gran = g;
+  btn.closest('.seg-group').querySelectorAll('.btn-seg').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderChart();
+}
+
+let _subGran = 'month', _subRevChart = null, _subTrendChart = null;
+
+function getSubBuckets() {
+  const key = _subGran==='day'?'subByDay':_subGran==='week'?'subByWeek':'subByMonth';
+  return (_data.subStats && _data.subStats[key]) || [];
+}
+
+function renderSubCharts() {
+  const buckets = getSubBuckets();
+  const labels  = buckets.map(b => b.date);
+  if (_subRevChart) _subRevChart.destroy();
+  _subRevChart = new Chart(document.getElementById('r-sub-rev-chart').getContext('2d'), {
+    type: 'bar',
+    data: { labels, datasets: [
+      { label:'First Sub Orders', data:buckets.map(b=>b.subRevenue),    backgroundColor:'rgba(88,86,214,0.85)',  borderColor:'#5856d6', borderWidth:1, stack:'rev' },
+      { label:'Recurring Orders', data:buckets.map(b=>b.recurRevenue),  backgroundColor:'rgba(52,199,89,0.85)',  borderColor:'#34c759', borderWidth:1, stack:'rev' },
+      { label:'Non-Subscription', data:buckets.map(b=>b.nonSubRevenue), backgroundColor:'rgba(0,113,227,0.75)', borderColor:'#0071e3', borderWidth:1, stack:'rev' },
+    ]},
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      plugins: {
+        legend:{ display:true, labels:{boxWidth:12,font:{size:11}} },
+        tooltip:{ callbacks:{ label:c=>c.dataset.label+': '+_currency+c.parsed.y.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}) } },
+      },
+      scales:{
+        x:{ stacked:true, grid:{display:false} },
+        y:{ stacked:true, beginAtZero:true, ticks:{callback:v=>_currency+v.toLocaleString()} },
+      },
+    },
+  });
+  if (_subTrendChart) _subTrendChart.destroy();
+  _subTrendChart = new Chart(document.getElementById('r-sub-trend-chart').getContext('2d'), {
+    type: 'line',
+    data: { labels, datasets: [
+      { label:'New Subscribers',  data:buckets.map(b=>b.firstCount), borderColor:'#5856d6', backgroundColor:'rgba(88,86,214,0.1)', fill:true, tension:0.3, pointRadius:3, pointHoverRadius:5 },
+      { label:'Recurring Orders', data:buckets.map(b=>b.recurCount), borderColor:'#34c759', backgroundColor:'rgba(52,199,89,0.1)',  fill:true, tension:0.3, pointRadius:3, pointHoverRadius:5 },
+    ]},
+    options: {
+      responsive:true, maintainAspectRatio:false,
+      plugins: {
+        legend:{ display:true, labels:{boxWidth:12,font:{size:11}} },
+        tooltip:{ callbacks:{ label:c=>c.dataset.label+': '+c.parsed.y } },
+      },
+      scales:{
+        x:{ grid:{display:false} },
+        y:{ beginAtZero:true, ticks:{precision:0} },
+      },
+    },
+  });
+}
+
+function setSubGran(g, btn) {
+  _subGran = g;
+  document.querySelectorAll('#r-sub-gran-group .btn-seg').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  renderSubCharts();
+}
+
+renderChart();
+if (_data.hasSubscriptions) renderSubCharts();
+</script>
+</body>
+</html>
